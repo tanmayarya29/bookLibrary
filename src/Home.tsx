@@ -9,7 +9,6 @@ import { AlertSnackbar } from "./components/AlertSnackbar";
 import { CommonTable } from "./components/CommonTable";
 import { delay } from "./components/constant";
 import { CustomPagination } from "./components/CustomPagination";
-import { useParams } from "react-router-dom";
 
 const Home = () => {
   const [books, setBooks] = useState<Book[]>([]);
