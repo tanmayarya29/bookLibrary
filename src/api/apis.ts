@@ -1,7 +1,7 @@
 import axios from "axios";
 
-const BASE_SUBJECT_URL = "http://openlibrary.org/subjects/";
-const BASE_SEARCH_URL = "http://openlibrary.org/search.json";
+const BASE_SUBJECT_URL = "https://openlibrary.org/subjects/";
+const BASE_SEARCH_URL = "https://openlibrary.org/search.json";
 
 const getBooksBySubject = async (queryParams: {
   subject: string;
