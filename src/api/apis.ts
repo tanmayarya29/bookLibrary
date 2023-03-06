@@ -20,7 +20,8 @@ const getBooksBySubject = async (queryParams: {
       BASE_SUBJECT_URL +
         `${subject.toLocaleLowerCase()}.json?limit=${limit}&offset=${offset}`
     );
-    localStorage.setItem(subject.toLocaleLowerCase(), JSON.stringify(call));
+    if (call.data.works.length === 0)
+      localStorage.setItem(subject.toLocaleLowerCase(), JSON.stringify(call));
     return call;
   }
   return JSON.parse(localStorage.getItem(subject.toLocaleLowerCase()) || "");
@@ -41,7 +42,8 @@ const getBooks = async (queryParams: {
     const call = await axios.get(
       BASE_SEARCH_URL + `?q=${query}&limit=${limit}&offset=${offset}`
     );
-    localStorage.setItem(query.toLocaleLowerCase(), JSON.stringify(call));
+    if (call.data.docs.length === 0)
+      localStorage.setItem(query.toLocaleLowerCase(), JSON.stringify(call));
     return call;
   }
   return JSON.parse(localStorage.getItem(query.toLocaleLowerCase()) || "");
